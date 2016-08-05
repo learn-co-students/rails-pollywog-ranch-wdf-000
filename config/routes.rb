@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :frogs
+
   # root
   root to: 'static_pages#home'
 
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   
   # code your post to  '/tadpoles/:id/metamorphosize' here
   # it should direct to the tadpoles controller, the metamorphosize action
+  post '/tadpoles/:id/metamorphosize', to: 'tadpoles#metamorphosize'
 
   # resources
   resources :ponds
