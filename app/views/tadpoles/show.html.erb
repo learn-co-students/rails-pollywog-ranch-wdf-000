@@ -16,3 +16,9 @@
 <div class="card">
   <img src="http://<%= @tadpole.color %>-tadpole.jpg.to/" alt="Tadpole Picture" width="300">
 </div>
+
+<%= form_for @tadpole, url: become_a_frog_path(@tadpole), method: :post do |f| %>
+  <%= f.submit "Become a frog" %>
+<% end %>
+
+<%# <%= button_to "Become a frog" , become_frog_path(@tadpole) , method: :post %1> %>

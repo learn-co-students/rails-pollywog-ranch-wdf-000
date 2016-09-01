@@ -15,6 +15,16 @@ class TadpolesController < ApplicationController
     @tadpole = Tadpole.new
   end
 
+  def metamorphosize
+    # binding.pry
+    @frog = Frog.new(color: @tadpole.color, name: @tadpole.name)
+    @frog.tadpoles << set_tadpole
+    @frog.pond = set_tadpole.pond
+    @frog.save
+    @tadpole.destroy
+    redirect_to frog_path(@frog)
+  end
+
   def edit
     @frog = @tadpole.frog
   end
@@ -31,6 +41,7 @@ class TadpolesController < ApplicationController
   end
 
   def update
+    binding.pry
     respond_to do |format|
       if @tadpole.update(tadpole_params)
         format.html { redirect_to @tadpole, notice: 'Tadpole was successfully updated.' }
