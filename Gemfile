@@ -42,10 +42,12 @@ group :test, :development do
   gem "simplecov", '~> 0.10.0'
   gem "database_cleaner", '~> 1.5.1'
   gem "sqlite3", '~> 1.3.11'
-  gem "pry", '~> 0.10.3'
+  gem "pry-rails"
   gem "guard-rspec", require: false
   gem "thin", '~> 1.6.4'
   gem 'launchy', '~> 2.4.3'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :production do
