@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   # code your post to  '/tadpoles/:id/metamorphosize' here
   # it should direct to the tadpoles controller, the metamorphosize action
-
+  post '/tadpoles/:id/metamorphosize', to: 'tadpoles#metamorphosize'
   # resources
   resources :ponds
 
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   # nested resources
   resources :frogs do
+    # This makes it so that tadpoles can only be created from within the frog show page
     resources :tadpoles, :only => [:new]
   end
 
