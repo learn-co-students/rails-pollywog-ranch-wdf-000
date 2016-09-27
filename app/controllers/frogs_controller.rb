@@ -10,7 +10,9 @@ class FrogsController < ApplicationController
   end
 
   def new
+    @pond = Pond.find(set_pond)
     @frog = Frog.new
+    @frog.pond = @pond
   end
 
   def edit
@@ -48,6 +50,10 @@ class FrogsController < ApplicationController
   private
     def set_frog
       @frog = Frog.find(params[:id])
+    end
+
+    def set_pond
+      @pond = Pond.find(params[:id])
     end
 
     def frog_params
