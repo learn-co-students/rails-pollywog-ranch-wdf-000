@@ -7,6 +7,7 @@ class FrogsController < ApplicationController
   end
 
   def show
+    @frog = Frog.find_by(id: params[:id])
   end
 
   def new
