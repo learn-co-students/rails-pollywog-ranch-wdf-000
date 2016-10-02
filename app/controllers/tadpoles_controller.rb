@@ -5,10 +5,17 @@ class TadpolesController < ApplicationController
   def metamorphosize
   # binding.pry
   # make a new from with the given tadpoles's name, color, and pond
-  new_frog = Frog.create(name: @tadpole.name, color: @tadpole.color, pond_id: @tadpole.pond.id)
-  @tadpole.destroy
-
-  redirect_to "/frogs/#{new_frog.id}"
+    @new_frog = Frog.new(name: @tadpole.name, color: @tadpole.color, pond_id: @tadpole.pond.id)
+  
+    respond_to do |format|
+      if @new_frog.save
+        @tadpole.destroy
+        # redirect_to "/frogs/#{@new_frog.id}"
+        format.html {redirect_to @new_frog, notice: "#{@tadpole.name} Tadpole becomes a frog successfully"}
+      else
+        format.html {render "/tadpoles/#{@tadpole.id}"}
+      end
+    end
   end
   
   def index
