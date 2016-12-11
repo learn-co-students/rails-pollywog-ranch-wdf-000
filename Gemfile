@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -49,9 +49,8 @@ group :test, :development do
 end
 
 group :production do
-  gem "pg"
-  gem "google-analytics-rails"
-  gem "rails_12factor"
 end
+gem "google-analytics-rails"
+gem "rails_12factor"
 
 gem "bootstrap-sass", "~> 3.1.1"
